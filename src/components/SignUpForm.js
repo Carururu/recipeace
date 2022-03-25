@@ -1,7 +1,12 @@
 import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
+import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { auth } from '../firebase'
 
 const SignUpForm = () => {
+  let navigate = useNavigate()
+
   const {
     register,
     handleSubmit,
@@ -9,7 +14,16 @@ const SignUpForm = () => {
   } = useForm()
 
   const onSubmit = (data) => {
-    console.log(data)
+    createUserWithEmailAndPassword(auth, data.email, data.password)
+      .then((userCredential) => {
+        updateProfile(auth.currentUser, {
+          displayName: data.username,
+        }).then(() => {
+          // Profile updated!
+          navigate(`/`)
+        })
+      })
+      .catch((error) => alert(error.message))
   }
 
   return (

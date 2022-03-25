@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
 import './LoginPage.css'
 import LoginForm from '../components/LoginForm'
 import SignUpForm from '../components/SignUpForm'
@@ -9,8 +8,7 @@ const LoginPage = () => {
 
   return (
     <div className='container'>
-      LoginPages
-      <Link to='/'>Home</Link>
+      Login Page
       {/* 2 columns, 1st col: name and tagline, 2nd col: login form */}
       <h1>recipeace</h1>
       <h2>Find and share your recipe in peace.</h2>

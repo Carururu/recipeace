@@ -1,11 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 const HomePage = () => {
   return (
     <div className='container'>
       HomePage
-      <Link to='/login'>Login</Link>
+      <button>Logout</button>
     </div>
   )
 }
