@@ -15,8 +15,10 @@ const App = () => {
         // https://firebase.google.com/docs/reference/js/firebase.User
         console.log(user)
         console.log('user ' + user.displayName + ' is signed in ')
+        navigate(`/`)
         // ...
       } else {
+        console.log(user)
         navigate(`/login`)
         // User is signed out
         // ...
