@@ -16,7 +16,12 @@ const App = () => {
         console.log(user)
         console.log('user ' + user.displayName + ' is signed in ')
         navigate(`/`)
-        // ...
+        const data = {
+          uid: user.uid,
+          email: user.email,
+          displayName: user.displayName,
+        }
+        localStorage.setItem('currentUser', JSON.stringify(data))
       } else {
         console.log(user)
         navigate(`/login`)
